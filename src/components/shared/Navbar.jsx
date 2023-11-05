@@ -4,7 +4,7 @@ import { AiOutlineMenu } from 'react-icons/ai';
 const Navbar = () => {
 	const navLinks = <>
 	<NavLink to='/' className="ml-5">Home</NavLink>
-	<NavLink to='/' className="ml-5">Add job</NavLink>
+	<NavLink to='/addJob' className="ml-5">Add job</NavLink>
 	<NavLink to='/' className="ml-5">My posted jobs</NavLink>
 	<NavLink to='/' className="ml-5">My bids</NavLink>
 	<NavLink to='/' className="ml-5">Bid requests</NavLink>

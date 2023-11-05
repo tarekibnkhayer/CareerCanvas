@@ -3,6 +3,7 @@ import {
   } from "react-router-dom";
 import Home from "../pages/Home";
 import Root from "./Root";
+import AddJob from "../pages/AddJob";
 
   const router = createBrowserRouter([
     {
@@ -12,6 +13,10 @@ import Root from "./Root";
         {
           path: '/',
           element: <Home></Home>
+        }, 
+        {
+          path: '/addJob',
+          element: <AddJob></AddJob>
         }
       ]
     },
