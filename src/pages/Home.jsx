@@ -1,9 +1,10 @@
+import Banner from "../components/forHomePage/Banner";
 
 
 const Home = () => {
     return (
-        <div>
-            HOme
+        <div className="lg:mt-24">
+            <Banner></Banner>
         </div>
     );
 };
