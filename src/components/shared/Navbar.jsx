@@ -19,7 +19,7 @@ const Navbar = () => {
 		{navLinks}
 	</div>
 	<div className="navbar-end">
-		<NavLink to='/' className="mr-4">Login</NavLink>
+		<NavLink to='/login' className="mr-4">Login</NavLink>
 	<img src="https://i.imgur.com/BSXLY0r.png" alt="" className="w-12" />
 	</div>
     </div>
