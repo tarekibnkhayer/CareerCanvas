@@ -11,7 +11,15 @@ const Register = () => {
         const email = form.email.value;
         const password = form.password.value;
         const photo = form.photo.value;
-        console.log(name, email, password, photo);
+        if (password.length < 6) {
+            return Swal.fire("password should have at least 6 characters");
+          }
+          if (!/[A-Z]/.test(password)) {
+            return Swal.fire("password should have at least one uppercase character");
+          }
+          if (!/[!@#$%^&*()_+{}[\]:;<>,.?~\\/-]/.test(password)) {
+            return Swal.fire("please add at least a special character in your password!");
+          }
         createUser(email, password)
         .then(() => {
             updateUserInfo(name, photo)
