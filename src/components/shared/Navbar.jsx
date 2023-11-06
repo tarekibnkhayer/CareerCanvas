@@ -13,7 +13,7 @@ const Navbar = () => {
       <NavLink to="/addJob" className="ml-5">
         Add job
       </NavLink>
-      <NavLink to="/" className="ml-5">
+      <NavLink to="/myPostedJobs" className="ml-5">
         My posted jobs
       </NavLink>
       <NavLink to="/" className="ml-5">

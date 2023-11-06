@@ -1,3 +1,4 @@
+import { useNavigate } from "react-router-dom";
 import useAuth from "../myHooks/useAuth";
 import useAxiosSecure from "../myHooks/useAxiosSecure";
 import Swal from "sweetalert2";
@@ -5,6 +6,7 @@ import Swal from "sweetalert2";
 const AddJob = () => {
   const { user } = useAuth();
   const axiosSecure = useAxiosSecure();
+  const navigate = useNavigate();
   const handleAddJob = (e) => {
     e.preventDefault();
     const form = e.target;
@@ -26,7 +28,10 @@ const AddJob = () => {
     };
     axiosSecure
     .post(`/jobs`, job)
-    .then(() => Swal.fire("Job added successfully"));
+    .then(() => {
+      Swal.fire("Job added successfully");
+      navigate("/myPostedJobs");
+    });
   };
   return (
     <div className="lg:mt-28 bg-[#F4F3F0] max-w-2xl mx-auto py-6">
@@ -47,6 +52,7 @@ const AddJob = () => {
               placeholder="Type here"
               name="email"
               value={user.email}
+              readOnly
               type="email"
               className="input max-w-full"
             />
@@ -121,7 +127,7 @@ const AddJob = () => {
                 id=""
                 cols="60"
                 rows="5"
-                className="border-[2px]"
+                className="border-[2px] px-4"
               ></textarea>
             </div>
           </div>

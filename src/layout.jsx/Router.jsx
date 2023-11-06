@@ -8,6 +8,7 @@ import PrivateRoutes from "../privateRouter/PrivateRoutes";
 import Login from "../pages/Login";
 import Register from "../pages/Register";
 import ErrorPage from "../pages/ErrorPage";
+import MyPostedJobs from "../pages/MyPostedJobs";
 
   const router = createBrowserRouter([
     {
@@ -30,6 +31,10 @@ import ErrorPage from "../pages/ErrorPage";
         {
           path: '/register',
           element: <Register></Register>
+        },
+        {
+          path: '/myPostedJobs',
+          element: <PrivateRoutes><MyPostedJobs></MyPostedJobs></PrivateRoutes>
         }
       ]
     },
