@@ -19,9 +19,9 @@ const Register = () => {
                 Swal.fire("User is created successfully");
                 form.reset();
             })
-            .catch(err => console.log(err))
+            .catch((err) => Swal.fire(err.message));
         })
-        .catch(err => console.log(err))
+        .catch(err => Swal.fire(err.message));
     }
     return (
         <form onSubmit={handleRegister} className="mx-auto flex w-full max-w-sm flex-col gap-6 mt-36">

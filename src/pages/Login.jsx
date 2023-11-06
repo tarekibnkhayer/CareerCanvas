@@ -1,5 +1,6 @@
 import { NavLink } from "react-router-dom";
 import useAuth from "../myHooks/useAuth";
+import Swal from "sweetalert2";
 
 
 const Login = () => {
@@ -9,9 +10,12 @@ const Login = () => {
 		const form = event.target;
 		const email = form.email.value;
 		const password = form.password.value;
-		console.log(email, password);
 		loginUser(email, password)
-		.then().catch()
+		.then(() => {
+			Swal.fire("Logged in Successfully")
+			form.reset();
+	})
+		.catch(err => Swal.fire(err.message));
 	};
     return (
         <div className="mx-auto flex w-full max-w-lg flex-col rounded-xl border border-border bg-backgroundSecondary p-4 sm:p-20 mt-28" >
