@@ -6,7 +6,7 @@ const Jobs = () => {
             <h1 className='text-center text-3xl md:text-4xl lg:text-5xl my-6 font-extrabold text-green-800'>Job Categories</h1>
               <Tabs className="mx-auto my-auto">
     <TabList className="md:text-2xl font-semibold italic bg-slate-100 md:w-[650px] w-[250px] md:h-16 mx-auto">
-      <Tab >Web development</Tab>
+      <Tab >Web Development</Tab>
       <Tab >Digital Marketing</Tab>
       <Tab >Graphic Design</Tab>
     </TabList>
