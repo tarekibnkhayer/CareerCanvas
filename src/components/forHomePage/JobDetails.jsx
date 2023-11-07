@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import useAxiosSecure from "../../myHooks/useAxiosSecure";
 import { useState } from "react";
 import useAuth from "../../myHooks/useAuth";
+import Swal from "sweetalert2";
 
 
 const JobDetails = () => {
@@ -14,6 +15,23 @@ const JobDetails = () => {
         axiosSecure.get(`/postedJobs/find/${id}`)
         .then(res => setJob(res.data));
     },[axiosSecure, id]);
+    const handleBid = e => {
+        e.preventDefault();
+        const form = e.target;
+        const buyerEmail = form.buyerEmail.value;
+        const bidderEmail = form.bidderEmail.value;
+        const bidAmount = form.bidAmount.value;
+        const deadline = form.deadline.value;
+        const bid = {
+            buyerEmail, bidderEmail, bidAmount, deadline
+        };
+        axiosSecure.post(`/bids`, bid)
+        .then(res => {
+            if(res.data.insertedId){
+                Swal.fire('Your bidding is successfully submitted');
+            }
+        })
+    }
     return (
         <div className="lg:mt-32 max-w-xl mx-auto space-y-4">
            <h1 className="text-center text-3xl font-semibold"> <span className="text-green-500">Job Title:</span> {job?.title}</h1>
@@ -28,6 +46,7 @@ const JobDetails = () => {
             <hr  className="border-[2px]"/>
             <form
         className="mx-auto  flex w-full max-w-sm flex-col gap-6 "
+        onSubmit={handleBid}
       >
         <div className="flex flex-col items-center">
         </div>
@@ -37,7 +56,7 @@ const JobDetails = () => {
 
             <input
               placeholder="Type here"
-              name="email"
+              name="buyerEmail"
               value={job?.email}
               readOnly
               type="email"
@@ -49,7 +68,7 @@ const JobDetails = () => {
 
             <input
               placeholder="Type here"
-              name="email"
+              name="bidderEmail"
               value={user?.email}
               readOnly
               type="email"
