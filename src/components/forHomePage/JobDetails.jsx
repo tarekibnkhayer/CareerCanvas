@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import useAxiosSecure from "../../myHooks/useAxiosSecure";
 import { useState } from "react";
 import useAuth from "../../myHooks/useAuth";
@@ -11,6 +11,7 @@ const JobDetails = () => {
     const axiosSecure = useAxiosSecure();
     const {user} = useAuth();
     const [job, setJob] = useState();
+    const navigate = useNavigate();
     useEffect(() => {
         axiosSecure.get(`/postedJobs/find/${id}`)
         .then(res => setJob(res.data));
@@ -22,13 +23,15 @@ const JobDetails = () => {
         const bidderEmail = form.bidderEmail.value;
         const bidAmount = form.bidAmount.value;
         const deadline = form.deadline.value;
+        const title = job?.title;
         const bid = {
-            buyerEmail, bidderEmail, bidAmount, deadline
+            buyerEmail, bidderEmail, bidAmount, deadline, title
         };
         axiosSecure.post(`/bids`, bid)
         .then(res => {
             if(res.data.insertedId){
                 Swal.fire('Your bidding is successfully submitted');
+                navigate('/myBids');
             }
         })
     }

@@ -16,7 +16,7 @@ const Navbar = () => {
       <NavLink to="/myPostedJobs" className="ml-5">
         My posted jobs
       </NavLink>
-      <NavLink to="/" className="ml-5">
+      <NavLink to="/myBids" className="ml-5">
         My bids
       </NavLink>
       <NavLink to="/" className="ml-5">

@@ -11,6 +11,7 @@ import ErrorPage from "../pages/ErrorPage";
 import MyPostedJobs from "../pages/MyPostedJobs";
 import Update from "../forUpdatePage/Update";
 import JobDetails from "../components/forHomePage/JobDetails";
+import MyBids from "../pages/MyBids";
 
   const router = createBrowserRouter([
     {
@@ -45,6 +46,10 @@ import JobDetails from "../components/forHomePage/JobDetails";
         {
           path: "/jobDetails/:id",
           element: <PrivateRoutes><JobDetails></JobDetails></PrivateRoutes>
+        },
+        {
+          path: "/myBids",
+          element: <PrivateRoutes><MyBids></MyBids></PrivateRoutes>
         }
       ]
     },
