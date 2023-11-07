@@ -1,9 +1,10 @@
 import PropTypes from 'prop-types'
-import { Navigate } from "react-router-dom";
-import useAuth from "../myHooks/useAuth";
+import {  Navigate } from "react-router-dom";
+import { useContext } from 'react';
+import { AuthContext } from '../providers/AuthProviders';
 
 const PrivateRoutes = ({children}) => {
-   const {user, loading} = useAuth();
+   const {user, loading} = useContext(AuthContext);
    if(loading){
     return <div className="spinner-dot-circle">
 	<div className="spinner-dot"></div>
@@ -16,12 +17,10 @@ const PrivateRoutes = ({children}) => {
 	<div className="spinner-dot"></div>
 </div>
    }
-   if(user){
+   else if(user){
     return children;
    }
-   else{
-    return Navigate("/login")
-   }
+   return <Navigate to='/login'></Navigate>
 };
 
 export default PrivateRoutes;

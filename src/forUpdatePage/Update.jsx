@@ -44,7 +44,7 @@ const Update = () => {
       >
         <div className="flex flex-col items-center">
           <h1 className="text-3xl text-green-600 font-mono  font-bold">
-            Add Job Here
+            Update Job Info
           </h1>
         </div>
         <div className="form-group">
