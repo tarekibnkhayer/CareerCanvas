@@ -10,6 +10,7 @@ import Register from "../pages/Register";
 import ErrorPage from "../pages/ErrorPage";
 import MyPostedJobs from "../pages/MyPostedJobs";
 import Update from "../forUpdatePage/Update";
+import JobDetails from "../components/forHomePage/JobDetails";
 
   const router = createBrowserRouter([
     {
@@ -39,7 +40,11 @@ import Update from "../forUpdatePage/Update";
         },
         {
           path: "update/:id",
-          element:<Update></Update>,
+          element:<Update></Update>
+        },
+        {
+          path: "/jobDetails/:id",
+          element: <PrivateRoutes><JobDetails></JobDetails></PrivateRoutes>
         }
       ]
     },

@@ -1,7 +1,8 @@
 import PropTypes from 'prop-types'
+import { Link } from 'react-router-dom';
 
 const JobCard = ({job}) => {
-    const {title, deadline, maxPrice, minPrice, description, email} = job;
+    const {title, deadline, maxPrice, minPrice, description, email, _id} = job;
     return (
         <div className="h-96 border mt-2 flex shadow-lg">
         <div className="card-body">
@@ -11,7 +12,7 @@ const JobCard = ({job}) => {
             <p className=''>Deadline: {deadline}</p>
             <p className=''>Price Range: {minPrice} - {maxPrice} BDT</p>
             <div className="card-footer">
-                <button className="btn-secondary btn flex-grow" >Bid Now</button>
+              <Link to={`/jobDetails/${_id}`}>  <button className="btn-secondary btn flex-grow">Bid Now</button></Link>
             </div>
         </div>
     </div>
