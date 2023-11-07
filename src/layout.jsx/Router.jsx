@@ -40,7 +40,6 @@ import Update from "../forUpdatePage/Update";
         {
           path: "update/:id",
           element:<Update></Update>,
-          loader: ({params}) => fetch(`https://career-canvas-server.vercel.app/postedJobs/${params.id}`)
         }
       ]
     },
