@@ -9,6 +9,7 @@ import Login from "../pages/Login";
 import Register from "../pages/Register";
 import ErrorPage from "../pages/ErrorPage";
 import MyPostedJobs from "../pages/MyPostedJobs";
+import Update from "../forUpdatePage/Update";
 
   const router = createBrowserRouter([
     {
@@ -35,6 +36,11 @@ import MyPostedJobs from "../pages/MyPostedJobs";
         {
           path: '/myPostedJobs',
           element: <PrivateRoutes><MyPostedJobs></MyPostedJobs></PrivateRoutes>
+        },
+        {
+          path: "update/:id",
+          element:<Update></Update>,
+          loader: ({params}) => fetch(`https://career-canvas-server.vercel.app/postedJobs/${params.id}`)
         }
       ]
     },
