@@ -1,4 +1,5 @@
 import Banner from "../components/forHomePage/Banner";
+import Comments from "../components/forHomePage/Comments";
 import HowItWorks from "../components/forHomePage/HowItWorks";
 import HowItWorksForBuyer from "../components/forHomePage/HowItWorksForBuyer";
 import Jobs from "../components/forHomePage/Jobs";
@@ -13,6 +14,7 @@ const Home = () => {
             </div>
             <HowItWorks></HowItWorks>
             <HowItWorksForBuyer></HowItWorksForBuyer>
+            <Comments></Comments>
         </div>
     );
 };
