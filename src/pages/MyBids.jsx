@@ -5,17 +5,21 @@ import { useState } from "react";
 
 
 const MyBids = () => {
-    const {user, status} = useAuth();
+    const {user} = useAuth();
     const axiosSecure = useAxiosSecure();
     const [myBids, setMyBids] = useState([]);
     let serial = 1;
     useEffect(() => {
         axiosSecure.get(`/bids/find/${user.email}`)
         .then(res => setMyBids(res.data))
-    },[axiosSecure, user.email])
+    },[axiosSecure, user.email]);
+    const handleCompleted = id => {
+        const status = 'completed';
+        axiosSecure.put(`/bidRequests/status/${id}`, {status}).then();
+    }
     return (
-        <div className="mt-32 max-w-7xl mx-auto">
-    <h1 className="text-center text-4xl mb-4">My Posted Jobs</h1>
+        <div className="mt-32 max-w-6xl mx-auto">
+    <h1 className="text-center text-4xl mb-4">My Bids</h1>
     <hr className="mb-4 border-[2px]" />
      <div className="flex w-full overflow-x-auto">
 	<table className="table">
@@ -36,8 +40,8 @@ const MyBids = () => {
                     <td>{myBid.title}</td>
                     <td>{myBid.buyerEmail}</td>
                     <td>{myBid.deadline}</td>
-                    <td>{status}</td>
-                    <td><button className="btn btn-secondary" disabled={status === 'pending' || status === 'canceled'}>Complete</button></td>
+                    <td>{myBid.status}</td>
+                    <td><button  onClick={() => handleCompleted(myBid._id)} className="btn btn-secondary" disabled={myBid.status !== 'in progress'}>Complete</button></td>
                 </tr>)
             }
 		</tbody>

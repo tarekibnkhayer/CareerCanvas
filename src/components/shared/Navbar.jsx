@@ -19,7 +19,7 @@ const Navbar = () => {
       <NavLink to="/myBids" className="ml-5">
         My bids
       </NavLink>
-      <NavLink to="/" className="ml-5">
+      <NavLink to="/bidRequests" className="ml-5">
         Bid requests
       </NavLink>
     </>

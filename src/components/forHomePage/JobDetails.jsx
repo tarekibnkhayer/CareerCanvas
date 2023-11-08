@@ -24,8 +24,9 @@ const JobDetails = () => {
         const bidAmount = form.bidAmount.value;
         const deadline = form.deadline.value;
         const title = job?.title;
+        const status = 'pending';
         const bid = {
-            buyerEmail, bidderEmail, bidAmount, deadline, title
+            buyerEmail, bidderEmail, bidAmount, deadline, title, status
         };
         axiosSecure.post(`/bids`, bid)
         .then(res => {
