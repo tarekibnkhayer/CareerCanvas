@@ -2,6 +2,8 @@ import { useEffect } from "react";
 import useAuth from "../myHooks/useAuth";
 import useAxiosSecure from "../myHooks/useAxiosSecure";
 import { useState } from "react";
+import "react-step-progress-bar/styles.css";
+import { ProgressBar } from "react-step-progress-bar";
 
 
 const BidRequests = () => {
@@ -24,7 +26,7 @@ const BidRequests = () => {
       };
     return (
         <div className="mt-32 max-w-6xl mx-auto">
-        <h1 className="text-center text-4xl mb-4">My Posted Jobs</h1>
+        <h1 className="text-center text-4xl mb-4">Bid Requests</h1>
         <hr className="mb-4 border-[2px]" />
          <div className="flex w-full overflow-x-auto">
         <table className="table">
@@ -46,8 +48,21 @@ const BidRequests = () => {
                         <td>{bid.bidderEmail}</td>
                         <td>{bid.deadline}</td>
                         <td>{bid.status}</td>
-                        <td><button  className="btn btn-success" onClick={() => handleAccept(bid._id)}>Accept</button> <button 
-                        className="btn btn-error" onClick={() =>handleReject(bid._id)}>Reject</button></td>
+                        <td ><div className={bid.status !== 'pending' && 'hidden'}><button  className="btn btn-success" onClick={() => handleAccept(bid._id)}>Accept</button> <button 
+                        className="btn btn-error" onClick={() =>handleReject(bid._id)}>Reject</button></div>
+                        <div className={bid.status !== 'in progress' && 'hidden'}>
+                        <ProgressBar
+        percent={55}
+        filledBackground="linear-gradient(to right, #fefb72, #f0bb31)"
+      />
+                        </div>
+                        <div className={bid.status !== 'completed' && 'hidden'}>
+                        <ProgressBar
+        percent={100}
+        filledBackground="linear-gradient(to right, #fefb72, #f0bb31)"
+      />
+                        </div>
+                        </td>
                     </tr>)})
                 }
             </tbody>
