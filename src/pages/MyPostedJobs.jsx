@@ -5,6 +5,7 @@ import {AiFillDelete} from 'react-icons/ai';
 import {BsFillPencilFill} from "react-icons/bs"
 import { Link } from "react-router-dom";
 import Swal from "sweetalert2";
+import { Helmet } from "react-helmet-async";
 
 
 const MyPostedJobs = () => {
@@ -45,6 +46,9 @@ const MyPostedJobs = () => {
     }
     return (
    <div className="lg:mt-32 mt-4 lg:max-w-6xl md:max-w-2xl max-w-xs mx-auto">
+    <Helmet>
+        <title>CareerCanvas | My posted jobs</title>
+    </Helmet>
     <h1 className="text-center text-4xl mb-4">My Posted Jobs</h1>
     <hr className="mb-4 border-[2px]" />
      <div className="flex w-full overflow-x-auto">

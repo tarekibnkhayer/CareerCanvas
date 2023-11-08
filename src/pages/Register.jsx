@@ -1,6 +1,7 @@
 import { NavLink } from "react-router-dom";
 import useAuth from "../myHooks/useAuth";
 import Swal from "sweetalert2";
+import { Helmet } from "react-helmet-async";
 
 const Register = () => {
     const {createUser, updateUserInfo} = useAuth()
@@ -33,6 +34,9 @@ const Register = () => {
     }
     return (
         <form onSubmit={handleRegister} className="mx-auto flex w-full max-w-sm flex-col gap-6 mt-36">
+            <Helmet>
+                <title>CareerCanvas | Register</title>
+            </Helmet>
         <div className="flex flex-col items-center">
             <h1 className="text-3xl font-semibold">Register</h1>
             <p className="text-sm">create a new account here</p>

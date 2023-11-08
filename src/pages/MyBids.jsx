@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import useAuth from "../myHooks/useAuth";
 import useAxiosSecure from "../myHooks/useAxiosSecure";
 import { useState } from "react";
+import { Helmet } from "react-helmet-async";
 
 
 const MyBids = () => {
@@ -19,6 +20,9 @@ const MyBids = () => {
     }
     return (
         <div className="lg:mt-32 mt-4 md:max-w-2xl max-w-xs lg:max-w-6xl mx-auto">
+            <Helmet>
+                <title>CareerCanvas | MyBids</title>
+            </Helmet>
     <h1 className="text-center text-4xl mb-4">My Bids</h1>
     <hr className="mb-4 border-[2px]" />
      <div className="flex w-full overflow-x-auto">

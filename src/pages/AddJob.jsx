@@ -2,6 +2,7 @@ import { useNavigate } from "react-router-dom";
 import useAuth from "../myHooks/useAuth";
 import useAxiosSecure from "../myHooks/useAxiosSecure";
 import Swal from "sweetalert2";
+import { Helmet } from "react-helmet-async";
 
 const AddJob = () => {
   const { user } = useAuth();
@@ -36,6 +37,11 @@ const AddJob = () => {
   };
   return (
     <div className="lg:mt-28 bg-[#F4F3F0] max-w-2xl mx-auto py-6">
+      <Helmet>
+        <title>
+          CareerCanvas | Add Job
+        </title>
+      </Helmet>
       <form
         className="mx-auto  flex w-full max-w-sm flex-col gap-6"
         onSubmit={handleAddJob}

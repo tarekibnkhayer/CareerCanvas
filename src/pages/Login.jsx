@@ -2,6 +2,7 @@ import { NavLink } from "react-router-dom";
 import useAuth from "../myHooks/useAuth";
 import Swal from "sweetalert2";
 import { GoogleAuthProvider } from "firebase/auth";
+import { Helmet } from "react-helmet-async";
 
 
 const Login = () => {
@@ -26,6 +27,9 @@ const Login = () => {
 	}
     return (
         <div className="mx-auto flex w-full max-w-lg flex-col rounded-xl border border-border bg-backgroundSecondary p-4 sm:p-20 lg:mt-28" >
+			<Helmet>
+				<title>CareerCanvas | Login</title>
+			</Helmet>
 	<div className="flex w-full flex-col gap-2">
 		<p>Login with</p>
 		<div className="flex w-full flex-col gap-2">

@@ -3,6 +3,7 @@ import useAuth from "../myHooks/useAuth";
 import useAxiosSecure from "../myHooks/useAxiosSecure";
 import { useState } from "react";
 import ProgressBar from "@ramonak/react-progress-bar";
+import { Helmet } from "react-helmet-async";
 
 
 const BidRequests = () => {
@@ -25,6 +26,9 @@ const BidRequests = () => {
       };
     return (
         <div className="lg:mt-32 mt-4 md:max-w-2xl max-w-xs lg:max-w-6xl mx-auto">
+            <Helmet>
+                <title>CareerCanvas | Bid Requests</title>
+            </Helmet>
         <h1 className="text-center text-4xl mb-4">Bid Requests</h1>
         <hr className="mb-4 border-[2px]" />
          <div className="flex w-full overflow-x-auto">
