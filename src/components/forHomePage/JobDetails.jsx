@@ -16,6 +16,9 @@ const JobDetails = () => {
         axiosSecure.get(`/postedJobs/find/${id}`)
         .then(res => setJob(res.data));
     },[axiosSecure, id]);
+    const deadlineSetByOwner = job?.deadline;
+    const deadlineDate = new Date(deadlineSetByOwner);
+    const currentDate = new Date();
     const handleBid = e => {
         e.preventDefault();
         const form = e.target;
@@ -107,7 +110,7 @@ const JobDetails = () => {
           </div>
           <div className="form-field pt-5">
             <div className="form-control justify-between">
-              <button type="submit" className="btn btn-primary w-full" disabled={user.email === job?.email}>
+              <button type="submit" className="btn btn-primary w-full" disabled={user.email === job?.email || currentDate > deadlineDate}>
                Bid On the Project
               </button>
             </div>

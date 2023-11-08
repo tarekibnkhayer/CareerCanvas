@@ -7,6 +7,7 @@ const AddJob = () => {
   const { user } = useAuth();
   const axiosSecure = useAxiosSecure();
   const navigate = useNavigate();
+  const currentDate = new Date().toISOString().split("T")[0];
   const handleAddJob = (e) => {
     e.preventDefault();
     const form = e.target;
@@ -78,6 +79,7 @@ const AddJob = () => {
                   placeholder="Type here in BDT"
                   required
                   type="date"
+                  min={currentDate}
                   className="input max-w-full"
                 />
               </div>
