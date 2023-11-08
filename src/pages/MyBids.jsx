@@ -14,9 +14,10 @@ const MyBids = () => {
         axiosSecure.get(`/bids/find/${user.email}`)
         .then(res => setMyBids(res.data))
     },[axiosSecure, user.email]);
-    const handleCompleted = id => {
+    const handleCompleted = async(id)=> {
         const status = 'completed';
-        axiosSecure.put(`/bidRequests/status/${id}`, {status}).then();
+        await axiosSecure.put(`/bidRequests/status/${id}`, {status});
+        setMyBids(myBids.map(bid => bid._id === id? {...bid, status}: bid));
     }
     return (
         <div className="lg:mt-32 mt-4 md:max-w-2xl max-w-xs lg:max-w-6xl mx-auto">
@@ -38,7 +39,7 @@ const MyBids = () => {
 			</tr>
 		</thead>
 		<tbody>
-            {
+            {myBids && 
                 myBids.map(myBid => <tr key={myBid._id}>
                     <th>{serial++}</th>
                     <td>{myBid.title}</td>
