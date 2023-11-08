@@ -10,7 +10,7 @@ const HowItWorks = () => {
        {id: 6,title: 'Complete Your Work ', description: "After finishing your work you simply press complete button and it will show your work is done"}
     ]
     return (
-            <div>
+            <div className="lg:max-w-6xl mx-auto md:max-w-2xl max-w-xs">
                 <h2 className="text-center text-3xl mt-10 font-black text-blue-600">How it Works for Job Seekers:</h2>
         <div className="lg:max-w-6xl mx-auto px-4 py-8 bg-green-500 mt-10 rounded-xl">
             <div className="grid lg:grid-cols-3 md:grid-cols-2  gap-6 mt-8 text-white">

@@ -44,7 +44,7 @@ const MyPostedJobs = () => {
           });
     }
     return (
-   <div className="mt-32 max-w-7xl mx-auto">
+   <div className="lg:mt-32 mt-4 lg:max-w-6xl md:max-w-2xl max-w-xs mx-auto">
     <h1 className="text-center text-4xl mb-4">My Posted Jobs</h1>
     <hr className="mb-4 border-[2px]" />
      <div className="flex w-full overflow-x-auto">

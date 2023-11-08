@@ -24,7 +24,7 @@ const BidRequests = () => {
 
       };
     return (
-        <div className="mt-32 max-w-6xl mx-auto">
+        <div className="lg:mt-32 mt-4 md:max-w-2xl max-w-xs lg:max-w-6xl mx-auto">
         <h1 className="text-center text-4xl mb-4">Bid Requests</h1>
         <hr className="mb-4 border-[2px]" />
          <div className="flex w-full overflow-x-auto">

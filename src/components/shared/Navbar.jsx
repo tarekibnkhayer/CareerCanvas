@@ -45,7 +45,7 @@ const Navbar = () => {
           {user ? (
             <>
               <button onClick={handleLogout} className="btn btn-secondary">Logout</button>
-              <img src={user?.photoURL} alt=""  className="w-12 rounded-full"/>
+              <img src={user.photoURL} alt=""  className="w-12 rounded-full"/>
               <p>{user.displayName}</p>
             </>
           ) : (
@@ -77,16 +77,16 @@ const Navbar = () => {
                 <NavLink to="/" className="dropdown-item text-sm">
                   Home
                 </NavLink>
-                <NavLink to="/" className="dropdown-item text-sm">
+                <NavLink to="/addJob" className="dropdown-item text-sm">
                   Add job
                 </NavLink>
-                <NavLink to="/" className="dropdown-item text-sm">
-                  My posted job
+                <NavLink to="/myPostedJobs" className="dropdown-item text-sm">
+                  My posted jobs
                 </NavLink>
-                <NavLink to="/" className="dropdown-item text-sm">
+                <NavLink to="/myBids" className="dropdown-item text-sm">
                   My bids
                 </NavLink>
-                <NavLink to="/" className="dropdown-item text-sm">
+                <NavLink to="/bidRequests" className="dropdown-item text-sm">
                   Bid requests
                 </NavLink>
               </div>
@@ -100,14 +100,32 @@ const Navbar = () => {
             />
           </div>
           <div className="navbar-end">
-            <NavLink to="/" className="text-sm md:text-xl mr-2">
+            {/* <NavLink to="/" className="text-sm md:text-xl mr-2">
               Login
             </NavLink>
             <img
               src="https://i.imgur.com/BSXLY0r.png"
               alt="user default logo"
               className="w-10"
-            />
+            /> */}
+             {user ? (
+            <>
+              <button onClick={handleLogout} className="text-xs md:text-xl mr-2">Logout</button>
+              <img src={user.photoURL} alt="user name"  className="w-10 rounded-full"/>
+              <p>{user.displayName}</p>
+            </>
+          ) : (
+            <>
+              <NavLink to="/login" className="mr-2 text-xs md:text-xl ">
+                Login
+              </NavLink>
+              <img
+                src="https://i.imgur.com/BSXLY0r.png"
+                alt="User default logo"
+                className="w-10"
+              />
+            </>
+          )}
           </div>
         </div>
       </div>

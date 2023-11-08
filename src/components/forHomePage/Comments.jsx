@@ -28,7 +28,7 @@ const Comments = () => {
        })
     }
     return (
-        <div className="lg:max-w-6xl mx-auto  mt-10">
+        <div className="lg:max-w-6xl mx-auto md:max-w-2xl max-w-xs  mt-10">
             <h2 className="text-center text-3xl font-bold  font-mono mb-2">Please Leave your Message for us</h2>
             <p className="text-center mb-4">We are committed to give you a nice user experience</p>
             <section className="rounded-xl bg-green-400">

@@ -41,7 +41,7 @@ const JobDetails = () => {
         })
     }
     return (
-        <div className="lg:mt-32 max-w-xl mx-auto space-y-4">
+        <div className="lg:mt-32  mt-4 max-w-xs md:max-w-xl mx-auto space-y-4">
            <h1 className="text-center text-3xl font-semibold"> <span className="text-green-500">Job Title:</span> {job?.title}</h1>
            <hr  className="border-[2px]"/>
            <p className="text-2xl font-semibold"><span className="text-blue-600">Buyer Email:  </span>{job?.email}</p>
