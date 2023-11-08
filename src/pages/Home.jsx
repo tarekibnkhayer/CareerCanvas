@@ -1,4 +1,5 @@
 import Banner from "../components/forHomePage/Banner";
+import HowItWorks from "../components/forHomePage/HowItWorks";
 import Jobs from "../components/forHomePage/Jobs";
 
 
@@ -9,6 +10,7 @@ const Home = () => {
             <div className="max-w-6xl mx-auto">
             <Jobs></Jobs>
             </div>
+            <HowItWorks></HowItWorks>
         </div>
     );
 };
