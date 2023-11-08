@@ -41,23 +41,23 @@ const Register = () => {
             <div className="form-field">
                 <label className="form-label">Name</label>
     
-                <input placeholder="Type here" name="name" type="text" className="input max-w-full" />
+                <input placeholder="Type here" name="name" type="text" className="input max-w-full" required />
             </div>
             <div className="form-field">
                 <label className="form-label">Email address</label>
     
-                <input placeholder="Type here" name="email" type="email" className="input max-w-full" />
+                <input placeholder="Type here" name="email" type="email" className="input max-w-full" required />
             </div>
             <div className="form-field">
                 <label className="form-label">Password</label>
                 <div className="form-control">
-                    <input placeholder="Type here" name="password" type="password" className="input max-w-full" />
+                    <input placeholder="Type here" name="password" type="password" className="input max-w-full" required />
                 </div>
             </div>
             <div className="form-field">
                 <label className="form-label">Photo URL</label>
                 <div className="form-control">
-                    <input placeholder="Type here" name="photo" type="url" className="input max-w-full" />
+                    <input placeholder="Type here" name="photo" type="url" className="input max-w-full" required />
                 </div>
             </div>
             <div className="form-field pt-5">

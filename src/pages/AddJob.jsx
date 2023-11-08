@@ -130,6 +130,7 @@ const AddJob = () => {
                 cols="60"
                 rows="5"
                 className="border-[2px] px-4"
+                required
               ></textarea>
             </div>
           </div>

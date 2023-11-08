@@ -34,6 +34,7 @@ const BidRequests = () => {
                     <th>Job Title</th>
                     <th>Bidder Email</th>
                     <th>Deadline</th>
+                    <th>Price</th>
                     <th>Status</th>
                     <th>Action</th>
                 </tr>
@@ -45,6 +46,7 @@ const BidRequests = () => {
                         <td>{bid.title}</td>
                         <td>{bid.bidderEmail}</td>
                         <td>{bid.deadline}</td>
+                        <td>{bid.bidAmount} BDT</td>
                         <td>{bid.status}</td>
                         <td ><div className={bid.status !== 'pending'?'hidden': ''}><button  className="btn btn-success" onClick={() => handleAccept(bid._id)}>Accept</button> <button 
                         className="btn btn-error" onClick={() =>handleReject(bid._id)}>Reject</button></div>
@@ -53,6 +55,9 @@ const BidRequests = () => {
       </div>
       <div className={bid.status !== 'completed'?'hidden':''}>
         <ProgressBar completed={100}/>
+                        </div>
+                        <div className={bid.status !== 'canceled'?'hidden':''}>
+                            <ProgressBar completed={0}/>
                         </div>
                         </td>
                     </tr>)})

@@ -19,6 +19,7 @@ const JobDetails = () => {
     const deadlineSetByOwner = job?.deadline;
     const deadlineDate = new Date(deadlineSetByOwner);
     const currentDate = new Date();
+    const CurrentDate = new Date().toISOString().split("T")[0];
     const handleBid = e => {
         e.preventDefault();
         const form = e.target;
@@ -48,6 +49,7 @@ const JobDetails = () => {
            <p className="text-xl "><span className="  text-blue-600">Work Description:  </span>{job?.description}</p>
            <p className="text-xl"><span className="text-blue-600">Price Range:  </span>{job?.minPrice} - {job?.maxPrice} BDT</p>
            <p className="text-xl font-medium"><span className="text-blue-600">Your Email:  </span>{user?.email}</p>
+           <p className="text-xl font-medium"><span className="text-blue-600">Your Name:   </span>{user?.displayName}</p>
            <div className="border px-2 py-4">
             <h2 className="text-center text-3xl font-bold mb-4">Place Your Bid:</h2>
             <hr  className="border-[2px]"/>
@@ -103,6 +105,7 @@ const JobDetails = () => {
                   placeholder="Type here in BDT"
                   required
                   type="date"
+                  min={CurrentDate}
                   className="input max-w-full"
                 />
               </div>
