@@ -14,14 +14,16 @@ const BidRequests = () => {
         axiosSecure.get(`/bidRequests/${user.email}`)
         .then(res => setBidRequests(res.data || []));
     }, [axiosSecure, user.email]);
-    const handleAccept = (id) => {
+    const handleAccept = async(id) => {
         const  status = 'in progress';
-        axiosSecure.put(`/bidRequests/status/${id}`, {status}).then();
+         await axiosSecure.put(`/bidRequests/status/${id}`, {status});
+         setBidRequests(bidRequests.map(bid => bid._id === id? {...bid, status}: bid));
       };
       
-      const handleReject = (id) => {
+      const handleReject = async(id) => {
         const status = 'canceled';
-        axiosSecure.put(`/bidRequests/status/${id}`,{ status}).then();
+        await axiosSecure.put(`/bidRequests/status/${id}`,{ status});
+        setBidRequests(bidRequests.map(bid => bid._id === id ? {...bid, status} : bid)); 
 
       };
     return (
