@@ -2,6 +2,7 @@ import { NavLink } from "react-router-dom";
 import { AiOutlineMenu } from "react-icons/ai";
 import useAuth from "../../myHooks/useAuth";
 import Swal from "sweetalert2";
+import './Navbar.css';
 
 const Navbar = () => {
   const { user, logoutUser } = useAuth();
