@@ -2,8 +2,7 @@ import { useEffect } from "react";
 import useAuth from "../myHooks/useAuth";
 import useAxiosSecure from "../myHooks/useAxiosSecure";
 import { useState } from "react";
-import "react-step-progress-bar/styles.css";
-import { ProgressBar } from "react-step-progress-bar";
+import ProgressBar from "@ramonak/react-progress-bar";
 
 
 const BidRequests = () => {
@@ -42,25 +41,18 @@ const BidRequests = () => {
             <tbody>
                 {
                     bidRequests.map(bid => { 
-                        console.log("Bid Object:", bid); 
                         return(<tr key={bid._id}>
                         <td>{bid.title}</td>
                         <td>{bid.bidderEmail}</td>
                         <td>{bid.deadline}</td>
                         <td>{bid.status}</td>
-                        <td ><div className={bid.status !== 'pending' && 'hidden'}><button  className="btn btn-success" onClick={() => handleAccept(bid._id)}>Accept</button> <button 
+                        <td ><div className={bid.status !== 'pending'?'hidden': ''}><button  className="btn btn-success" onClick={() => handleAccept(bid._id)}>Accept</button> <button 
                         className="btn btn-error" onClick={() =>handleReject(bid._id)}>Reject</button></div>
-                        <div className={bid.status !== 'in progress' && 'hidden'}>
-                        <ProgressBar
-        percent={55}
-        filledBackground="linear-gradient(to right, #fefb72, #f0bb31)"
-      />
-                        </div>
-                        <div className={bid.status !== 'completed' && 'hidden'}>
-                        <ProgressBar
-        percent={100}
-        filledBackground="linear-gradient(to right, #fefb72, #f0bb31)"
-      />
+                        <div className={bid.status !== 'in progress'?'hidden':''}>
+      <ProgressBar completed={60} />
+      </div>
+      <div className={bid.status !== 'completed'?'hidden':''}>
+        <ProgressBar completed={100}/>
                         </div>
                         </td>
                     </tr>)})
