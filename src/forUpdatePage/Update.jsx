@@ -12,6 +12,7 @@ const Update = () => {
         axiosSecure.get(`postedJobs/find/${id}`)
         .then(res => setJob(res.data));
     },[axiosSecure, id]);
+    const currentDate = new Date().toISOString().split("T")[0];
     const handleUpdateJobInfo = (e) => {
         e.preventDefault();
         const form = e.target;
@@ -83,6 +84,7 @@ const Update = () => {
                   defaultValue={job?.deadline}
                   required
                   type="date"
+                  min={currentDate}
                   className="input max-w-full"
                 />
               </div>

@@ -2,7 +2,7 @@ import { createContext, useEffect, useState} from "react";
 import PropTypes from 'prop-types';
 import auth from "../firebase/firebase.config";
 import { createUserWithEmailAndPassword, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut, updateProfile } from "firebase/auth";
-
+import axios from "axios";
 export const AuthContext = createContext();
 
 const AuthProviders = ({children}) => {
@@ -18,17 +18,21 @@ const AuthProviders = ({children}) => {
     };
     useEffect(() => {
         const unSubscribe = onAuthStateChanged(auth, currentUser => {
+            const userEmail = currentUser?.email || user?.email;
+            setUser(currentUser);
+            setLoading(false);
             if(currentUser){
-                setUser(currentUser);
-                setLoading(false);
+                const user = {email: userEmail};
+                axios.post('https://career-canvas-server.vercel.app/jwt', user, {withCredentials: true}).then().catch();
             }
             else {
-                setUser(null);
-                setLoading(false);
+                axios.post('https://career-canvas-server.vercel.app/logout', user, {
+                    withCredentials: true
+                }).then(res => console.log(res.data)).catch(err => console.error(err));
             }
-        })
+        });
         return () => unSubscribe()
-    },[]);
+    },[user]);
     const googleLogin = (provider) => {
         return signInWithPopup(auth, provider);
     };
@@ -39,7 +43,7 @@ const AuthProviders = ({children}) => {
         })
     }
     const logoutUser = () => {
-        setLoading(true);
+        setLoading(false);
         return signOut(auth);
     };
     const authInfo = {
