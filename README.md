@@ -1,7 +1,7 @@
 # CareerCanvas:
 ***
 # Project Name: CareerCanvas
-# Project live link: https://careercanvas-2cb5c.web.app
+# Project live link: https://last-development.surge.sh/
 ***
 ## MY Project Features and Functionalities:
 + #### My project is about a Job Marketplace.
