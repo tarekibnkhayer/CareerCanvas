@@ -14,6 +14,8 @@
 + #### You can add job through 'Add job' page after logged in and after you are redirected on 'My posted jobs' page. And here you can see all your added job .
 + #### On the 'Bid requests' page you can see all the bid that job seekers do in your added jobs.And you also see the job status .When a job seeker bid in your added job you can see the status 'pending' and it's right side there are two buttons Accept, Reject. If you accept it ,the status will be updated in 'in progress' . And if you reject it , the status will be updated in 'canceled'.
 + #### On the 'My bids' page you will be able to see your all bided jobs.After bidding if the job owner is Accept your bidding , your complete button will be enable .After finish your work you should be press the button and let know the job owner that your work is done.
++ #### On the 'My bids' page you can sort ascending or descending order of your bid jobs based on status.
++ #### For security purpose i add jwt token system 
 + #### You can register , login in my website. After login you can access some routes , otherwise not.
 
 

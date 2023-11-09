@@ -16,13 +16,17 @@ const BidRequests = () => {
     }, [axiosSecure, user.email]);
     const handleAccept = async(id) => {
         const  status = 'in progress';
-         await axiosSecure.put(`/bidRequests/status/${id}?email=${user?.email}`, {status});
+        const statusNum = 2;
+        const statusObj = {status, statusNum};
+         await axiosSecure.put(`/bidRequests/status/${id}?email=${user?.email}`, statusObj);
          setBidRequests(bidRequests.map(bid => bid._id === id? {...bid, status}: bid));
       };
       
       const handleReject = async(id) => {
         const status = 'canceled';
-        await axiosSecure.put(`/bidRequests/status/${id}?email=${user?.email}`,{ status});
+        const statusNum = 4;
+        const statusObj = {status, statusNum}
+        await axiosSecure.put(`/bidRequests/status/${id}?email=${user?.email}`, statusObj);
         setBidRequests(bidRequests.map(bid => bid._id === id ? {...bid, status} : bid)); 
 
       };

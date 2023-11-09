@@ -16,8 +16,25 @@ const MyBids = () => {
     },[axiosSecure, user.email]);
     const handleCompleted = async(id)=> {
         const status = 'completed';
-        await axiosSecure.put(`/bidRequests/status/${id}?email=${user?.email}`, {status});
+        const statusNum = 1;
+        const statusObj = {status, statusNum}
+        await axiosSecure.put(`/bidRequests/status/${id}?email=${user.email}`, statusObj);
         setMyBids(myBids.map(bid => bid._id === id? {...bid, status}: bid));
+    };
+    const handleChange = e => {
+        e.preventDefault();
+        const sortField = 'statusNum';
+        const sortOrder = e.target.value;
+        if(sortOrder){
+          return  axiosSecure.get(`/sorting/${user.email}?sortField=${sortField}&sortOrder=${sortOrder}`)
+         .then(res =>{ 
+            setMyBids(res.data)
+        });
+        }
+        else{
+            axiosSecure.get(`/bids/find/${user.email}`)
+            .then(res => setMyBids(res.data))
+        }
     }
     return (
         <div className="lg:mt-32 mt-4 md:max-w-2xl max-w-xs lg:max-w-6xl mx-auto">
@@ -25,6 +42,13 @@ const MyBids = () => {
                 <title>CareerCanvas | MyBids</title>
             </Helmet>
     <h1 className="text-center text-4xl mb-4">My Bids</h1>
+            <div className="w-48 float-right my-3">
+            <select className="input" onChange={handleChange}>
+              <option value="">Default</option>
+              <option value="asc">Ascending</option>
+              <option value="desc">Descending</option>
+            </select>
+            </div>
     <hr className="mb-4 border-[2px]" />
      <div className="flex w-full overflow-x-auto">
 	<table className="table">
