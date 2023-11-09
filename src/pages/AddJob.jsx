@@ -29,7 +29,7 @@ const AddJob = () => {
       deadline,
     };
     axiosSecure
-    .post(`/jobs`, job)
+    .post(`/jobs?email=${user?.email}`, job)
     .then(() => {
       Swal.fire("Job added successfully");
       navigate("/myPostedJobs");

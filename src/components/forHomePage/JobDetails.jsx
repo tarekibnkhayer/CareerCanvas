@@ -14,9 +14,9 @@ const JobDetails = () => {
     const [job, setJob] = useState();
     const navigate = useNavigate();
     useEffect(() => {
-        axiosSecure.get(`/postedJobs/find/${id}`)
+        axiosSecure.get(`/postedJobs/find/${id}?email=${user?.email}`)
         .then(res => setJob(res.data));
-    },[axiosSecure, id]);
+    },[axiosSecure, id, user?.email]);
     const deadlineSetByOwner = job?.deadline;
     const deadlineDate = new Date(deadlineSetByOwner);
     const currentDate = new Date();
@@ -33,7 +33,7 @@ const JobDetails = () => {
         const bid = {
             buyerEmail, bidderEmail, bidAmount, deadline, title, status
         };
-        axiosSecure.post(`/bids`, bid)
+        axiosSecure.post(`/bids?email=${user?.email}`, bid)
         .then(res => {
             if(res.data.insertedId){
                 Swal.fire('Your bidding is successfully submitted');

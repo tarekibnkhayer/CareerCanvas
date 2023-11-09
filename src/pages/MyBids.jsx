@@ -16,7 +16,7 @@ const MyBids = () => {
     },[axiosSecure, user.email]);
     const handleCompleted = async(id)=> {
         const status = 'completed';
-        await axiosSecure.put(`/bidRequests/status/${id}`, {status});
+        await axiosSecure.put(`/bidRequests/status/${id}?email=${user?.email}`, {status});
         setMyBids(myBids.map(bid => bid._id === id? {...bid, status}: bid));
     }
     return (

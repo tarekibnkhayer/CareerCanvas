@@ -2,12 +2,14 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import useAxiosSecure from "../myHooks/useAxiosSecure";
 import Swal from "sweetalert2";
+import useAuth from "../myHooks/useAuth";
 
 
 const Update = () => {
     const {id} = useParams();
     const [job, setJob] = useState(null);
     const axiosSecure = useAxiosSecure();
+    const {user} = useAuth();
     useEffect(() => {
         axiosSecure.get(`postedJobs/find/${id}`)
         .then(res => setJob(res.data));
@@ -31,7 +33,7 @@ const Update = () => {
           deadline,
         };
         axiosSecure
-        .put(`/jobs/update/${id}`, updatedInfo)
+        .put(`/jobs/update/${id}?email=${user?.email}`, updatedInfo)
         .then(res => {
            if(res.data.modifiedCount){
             Swal.fire("Job info successfully updated");

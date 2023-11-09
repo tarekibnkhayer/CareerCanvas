@@ -29,7 +29,7 @@ const MyPostedJobs = () => {
             confirmButtonText: "Yes, delete it!"
           }).then((result) => {
             if (result.isConfirmed) {
-            axiosSecure.delete(`/postedJobs/${id}`)
+            axiosSecure.delete(`/postedJobs/${id}?email=${user?.email}`)
             .then(res => {
                 if(res.data.deletedCount){
                     Swal.fire({
